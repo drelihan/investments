@@ -1,4 +1,12 @@
 Investment::Application.routes.draw do
+
+  match 'properties/:id/add_line_item' => 'properties#add_line_item', :as => :add_line_item, :via => :get
+  match 'properties/:id/analyze' => 'properties#analyze'
+  
+  resources :properties do
+    resources :line_items
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

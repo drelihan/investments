@@ -1,0 +1,64 @@
+<h3>Results</h3>
+<table>
+	<tr>
+		<td>Gross Revenue</td>
+		<td><%= number_to_currency @results[:total_revenue] %></td>
+	</tr>
+
+	<tr>
+		<td>Total Expenses</td>
+		<td><%= number_to_currency @results[:total_expenses] %></td>
+	</tr>
+
+	<tr>
+		<td>Mortgage P&I</td>
+		<td><%= number_to_currency @results[:mortgage_pi] %> ( Principal: <%= number_to_currency @results[:mortgage_p] %> - Interest: <%=  number_to_currency @results[:mortgage_i] %> )</td>
+	</tr>
+
+	<tr>
+		<td>Gross Cashflow</td>
+		<td><%= number_to_currency @results[:gross_cashflow] %></td>
+	</tr>
+	
+	<tr>
+		<td>Depreciation</td>
+		<td><%= number_to_currency @results[:depreciation] %></td>
+	</tr>
+	
+	<tr>
+		<td>Taxable Income</td>
+		<td><%= number_to_currency @results[:taxable_income] %></td>
+	</tr>
+
+	<tr>
+		<td>Income Tax</td>
+		<td><%= number_to_currency @results[:income_tax] %></td>
+	</tr>
+	
+	<tr>
+		<td>After Tax Cash Flow</td>
+		<td><%= number_to_currency @results[:after_tax_cashflow] %> ( <%= @results[:cashflow_dividend_yield].round(3) %>)% yield</td>
+	</tr>
+	
+	<tr>
+		<td>Mortgage Paydown</td>
+		<td><%= number_to_currency @results[:mortgage_paydown] %></td>
+	</tr>
+	
+	<tr>
+		<td>Appreciation</td>
+		<td><%= number_to_currency @results[:appreciation] %></td>
+	</tr>
+	
+	<tr style='font-size:14pt; background-color:#CCC;'>
+		<td style='font-size:14pt; background-color:#CCC; padding:20px;'>
+			Total Wealth Addition
+		</td>
+		<td style='font-size:14pt; background-color:#CCC; padding:20px;'>
+			<%= number_to_currency @results[:total_wealth_addition] %> ( <%= @results[:overall_yield].round(3) %> %) 
+		</td>
+	</tr>
+	
+</table>
+	
+		

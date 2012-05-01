@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  street_address: MyString
+  street_address2: MyString
+  city: MyString
+  state: MyString
+  zipcode: MyString
+  proptype: MyString
+  depreciable_value: 1.5
+
+two:
+  street_address: MyString
+  street_address2: MyString
+  city: MyString
+  state: MyString
+  zipcode: MyString
+  proptype: MyString
+  depreciable_value: 1.5

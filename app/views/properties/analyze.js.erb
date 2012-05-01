@@ -1,0 +1,5 @@
+$('#results').hide()
+$('#results').html("<%= escape_javascript ( render :partial => 'results', :locals => { :line_items => @line_items } ) %>" );
+$('#results').fadeIn('fast', function(){	
+});
+

@@ -1,0 +1,25 @@
+// Place all the styles related to the line_item controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+table,tr,td,th {
+	font-size: 8pt;
+	width: 700px;
+	padding: 2px;
+	border: 0px solid #000;
+	border-collapse: collapse;
+
+	td,tr {
+	font-size: 8pt;
+	padding: 2px;
+	border: 1px solid #000;
+	border-collapse: collapse;
+	}
+
+	th {
+		background-color: #000;
+		color: #FFF;
+		border: 1px solid #CCC;
+	}
+
+}

@@ -17,7 +17,7 @@ development:
   encoding: unicode
   database: investment_development
   pool: 5
-  username: investment
+  username: postgres
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a

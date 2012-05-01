@@ -1,0 +1,8 @@
+// Rebuild Expenses/Revenue area
+$("#line_item").fadeOut('slow', function() {
+	$("#line_item").html('');
+});
+
+$('#revenue').html("<%= escape_javascript ( render :partial => 'line_items/line_items', :locals => { :type => "revenue", :line_items => @revenue_items } ) %>" );
+$('#expense').html("<%= escape_javascript ( render :partial => 'line_items/line_items', :locals => { :type => "expense", :line_items => @expense_items } ) %>" );
+$("#results").html("Please reload");

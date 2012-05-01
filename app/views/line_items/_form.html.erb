@@ -1,0 +1,16 @@
+<%= form_for [@property,@line_item], :remote => true do |f| %>
+<table>
+	<tr>
+		<th>Type</th>
+		<th>Amount</th>
+		<th>Period</th>
+		<th></th>
+	</tr>
+	<tr>
+		<td><%= f.text_field :name %></td>
+		<td><%= f.text_field :fixed_amount %></td>
+		<td><%= f.select :period, [ [ 'Monthly', 12 ], [ 'Annually', 1] ], { :include_blank => true }   %></td>
+		<td><%= f.submit %></td>
+	</tr>
+<table>
+<% end %>

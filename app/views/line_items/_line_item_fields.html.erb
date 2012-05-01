@@ -1,0 +1,7 @@
+<%= fields_for "line_items[#{index}]", line_item do |f| %>
+	<tr id='line_item_<%= index %>'>
+		<td><%= f.text_field :name %></td>
+		<td><%= f.text_field :fixed_amount %></td>
+		<td><%= f.submit %></td>
+	</tr>
+<% end %>

@@ -1,0 +1,71 @@
+<address>
+  <%= @property.street_address %>
+<br>
+  <%= @property.street_address2 %>
+<br>
+  <%= @property.city %>, <%= @property.state %> <%= @property.zipcode %>
+</address>
+
+<p>
+  <b>Property Type:</b> <%= @property.proptype %>
+</p>
+
+<%= link_to 'Edit', edit_property_path(@property) %> |
+<%= link_to 'Back', properties_path %>
+
+<hr>
+
+<!-- List Revenue -->
+<p id="notice"><%= notice %></p>
+
+<h3>Revenue</h3>
+<div id='revenue'>
+	<%= render :partial => 'line_items/line_items', :locals => { :type => "revenue", :line_items => @revenue_items } %>
+</div>
+
+<h3>Expenses</h3>
+<!-- List Expenses -->
+<div id='expense'>
+	<%= render :partial => 'line_items/line_items', :locals => { :type => "expense", :line_items => @expense_items } %>
+</div>
+
+<div id='line_item'></div>
+<br>
+
+<%= link_to '+ Add a Line Item', add_line_item_path(@property) , :remote => true %>
+<br><br>
+<h3>Mortgage</h3>
+<%= form_for @property, :url => { :action => "analyze" } , :remote => true do |f| %>
+<table>
+	<tr>
+		<td>Purchase</td> 
+		<td><input type='text' name='purchase_price'></td>
+	</tr>
+	<tr>
+		<td>Down Payment</td> 
+		<td><input type='text' name='down_payment'></td>
+	</tr>
+	<tr>
+		<td>Interest Rate</td>
+		<td><input type='text' name='rate'></td>
+	</tr>
+	<tr>
+		<td>Term</td> 
+		<td><input type='text' name='term'></td>
+	</tr>	
+</table>
+
+<h3>Assumptions</h3>
+<table>
+	<tr>
+		<td>Annual Appreciation</td>
+		<td><input type='text' name='appreciation'></td>
+	</tr>
+</table>
+<p>
+<input type='submit' value='Run Analysis' style='height: 25px; width: 400px;'>
+
+<% end %>
+
+<div id='results'></div>
+

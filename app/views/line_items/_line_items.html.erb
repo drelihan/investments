@@ -1,0 +1,22 @@
+<% if line_items && line_items.size > 0 %>
+<table id="<%= "#{type}_items_table" %>">
+	<tr>
+		<th>Revenue Type</th>
+		<th>Amount</th>
+		<th>Period</th>
+		<th></th>
+	</tr>
+
+	<% line_items.each do |line_item| %>
+		<tr id='line_item_row_<%= line_item.id %>'>
+			<td><%= line_item.name %></td>
+			<td><%= number_to_currency line_item.fixed_amount %></td>
+			<td><%= LineItem.pp_period(line_item.period) %></td>
+			<td><%= link_to 'delete', property_line_item_path(@property,line_item), :method => :delete, :remote => :true %></td>
+		</tr>
+	<% end %>
+</table>
+
+<% else %>
+<em>There are no <%= type %> items, yet</em>
+<% end %>
