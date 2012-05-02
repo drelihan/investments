@@ -43,15 +43,25 @@
 	</tr>
 	<tr>
 		<td>Down Payment</td> 
-		<td><input type='text' name='down_payment'></td>
+		<td>
+
+			<input type='text' name='down_payment' onBlur='document.forms[0].elements["down_payment_pct"].value= document.forms[0].elements["down_payment"].value / document.forms[0].elements["purchase_price"].value * 100; document.forms[0].elements["balance"].value = document.forms[0].elements["purchase_price"].value - document.forms[0].elements["down_payment"].value;'> or 
+			
+			<input type='text' name='down_payment_pct' size=5 onBlur='document.forms[0].elements["down_payment"].value= document.forms[0].elements["down_payment_pct"].value * document.forms[0].elements["purchase_price"].value / 100; document.forms[0].elements["balance"].value = document.forms[0].elements["purchase_price"].value - document.forms[0].elements["down_payment"].value'> % 
+		
+		</td>
+	</tr>
+	<tr>
+		<td>Mortgage Balance</td> 
+		<td><input type='text' name='balance'></td>
 	</tr>
 	<tr>
 		<td>Interest Rate</td>
-		<td><input type='text' name='rate'></td>
+		<td><input type='text' name='rate' value='<%= session[:rate] %>'></td>
 	</tr>
 	<tr>
 		<td>Term</td> 
-		<td><input type='text' name='term'></td>
+		<td><input type='text' name='term' value='<%= session[:term] %>'></td>
 	</tr>	
 </table>
 
@@ -59,7 +69,7 @@
 <table>
 	<tr>
 		<td>Annual Appreciation</td>
-		<td><input type='text' name='appreciation'></td>
+		<td><input type='text' name='appreciation' value='<%= session[:appreciation] %>'></td>
 	</tr>
 </table>
 <p>

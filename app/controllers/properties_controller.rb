@@ -19,14 +19,21 @@ class PropertiesController < ApplicationController
   def analyze
     @property = Property.find(params[:id])
     
-    balance = params[:purchase_price].to_f - params[:down_payment].to_f
+    balance = params[:balance].to_f
     rate = params[:rate].to_f / 1200
+    session[:rate] = params[:rate].to_f
+    
     term = params[:term].to_i
+    session[:term] = params[:term].to_f
+
+
     mortgage_pi = ( balance * rate ) / ( 1 - ( 1 + rate ) ** ( -1 * term ) ) 
     mortgage_i  = balance * rate
     mortgage_p  = mortgage_pi - mortgage_i
 
     appreciation = params[:appreciation] ? params[:appreciation].to_f / 100 : 0 
+    session[:appreciation] = params[:appreciation]
+
 
     gross_cashflow = 0
     total_revenue = 0
@@ -54,7 +61,7 @@ class PropertiesController < ApplicationController
 
     @results[:after_tax_cashflow]   = @results[:gross_cashflow] - @results[:income_tax]
     @results[:mortgage_paydown]     = mortgage_p * 12
-    @results[:appreciation]         = balance * appreciation
+    @results[:appreciation]         = params[:purchase_price].to_f * appreciation
     
     @results[:cashflow_dividend_yield]  = @results[:after_tax_cashflow] / params[:down_payment].to_f * 100
 
